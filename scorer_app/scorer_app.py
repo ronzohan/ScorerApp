@@ -27,19 +27,20 @@ def hello_world():
     team = request.args.get('team')
 
     player = update_points(player_name, point_score, team)
-    print player
+    compute = ComputeTotalScore(TEAMS)
+    total = compute.compute_total()
 
     if player is None:
-        return render_template('index.html', error_message='Player not found or score input error.')
+        return render_template('index.html',
+                               error_message='Player not found or score input error.',
+                               total1=total[0], total2=total[1])
     else:
         compute = ComputeTotalScore(TEAMS)
         total = compute.compute_total()
 
-        total1 = total[0]
-        total2 = total[1]
         return render_template('index.html', player_name=player_name,
                                point_score=TEAMS[team]['scores'][player],
-                               team=team, total1=total1, total2=total2)
+                               team=team, total1=total[0], total2=total[1])
 
 
 def update_points(player_name, point_score, team):
@@ -60,5 +61,4 @@ def update_points(player_name, point_score, team):
 
 
 if __name__ == '__main__':
-    update_points('Eden Hazard', 2, 'Chelsea')
     APP.run(debug=True)
