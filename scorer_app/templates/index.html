@@ -34,12 +34,12 @@
 	{% endif %}
 	
 	<br/>
-	{% if total1 %}
-	Team: Chelsea Score: {{ total1 }}
+	{% if total1 is defined %}
+	Team: Chelsea Score: <p id="score1">{{ total1 }}</p>
 	{% endif %}
 	<br/>
-	{% if total2%}
-	Team Liverpool Score: {{ total2 }}
+	{% if total2  is defined %}
+	Team Liverpool Score: <p id="score2">{{ total2 }}</p>
 	{% endif%}
 </body>
 </html>
