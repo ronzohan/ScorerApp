@@ -16,7 +16,31 @@
 		<input name="team" type="text"/>
 		<input type="submit"/>
 	</form>
-
+	
+	{% if error_message %}
+	Error: {{ error_message }}
+	{% endif %}
+	
+	{% if player_name %}
+	Player Name: {{ player_name }}
+	{% endif %}
+	<br/>
+	{% if point_score %}
+	Point Scored: {{ point_score }}
+	{% endif %}
+	<br/>
+	{% if team %}
+	Team: {{ team }}
+	{% endif %}
+	
+	<br/>
+	{% if total1 %}
+	Team: Chelsea Score: {{ total1 }}
+	{% endif %}
+	<br/>
+	{% if total2%}
+	Team Liverpool Score: {{ total2 }}
+	{% endif%}
 </body>
 </html>
 
